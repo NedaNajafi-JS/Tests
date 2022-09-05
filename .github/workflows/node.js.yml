@@ -1,0 +1,23 @@
+
+name: Node.js environment variable
+
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Node.js environment variable
+    - run: |
+        touch .env
+        echo monoURI="mongodb+srv://test:Admin123456kK@connectedvehicles.qwi4egn.mongodb.net/test" >> .env
+        echo secretOrKey="Admin123456kK" >> .env
+        echo PORT=5001 >> .env
+        echo mapBoxToken="pk.eyJ1IjoiYmVoc2FtYW5tYXBuYSIsImEiOiJjazBwMG9mbnQwZXdzM3BuenhhZXFtYjR2In0.BLhJoFQnep8wbMS5oa65sQ" >> .env
+        cat .env
